@@ -12,7 +12,7 @@
   </head>
   <body>
     <header>
-      <h2>Grafik Model Linier Dinamis IHSG <small>(Mingguan)</small></h2>
+      <h2>Grafik Model Linier Dinamis IHSG</h2>
     </header>
 
     <section>
@@ -24,7 +24,7 @@
           <span style="margin: auto 0; grid-area: sampai">Sampai: </span>
           <select id="endbulan" class="bulan" style="grid-area: eb"></select>
           <select id="endTahun" style="grid-area: et"></select>
-          <button id="run">R U N </button>
+          <button id="run">R U N</button>
         </div>
         <table>
           <tbody id="table">
@@ -39,7 +39,9 @@
 
       <article>
         <div id="model">Model <span class="eq">\(Y=a+bX\)</span></div>
-        <canvas id="myChart" style="height: 98%"></canvas>
+        <div class="chart">
+          <canvas id="myChart" style="max-height: 76vh; width: 76%"></canvas>
+        </div>
       </article>
     </section>
 

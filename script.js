@@ -29,6 +29,8 @@ tahun.forEach((val)=>{
     control.st.insertAdjacentHTML( 'beforeend', tr )
     control.et.insertAdjacentHTML( 'beforeend', tr )
 })
+document.getElementById('endbulan').value = 12;
+document.getElementById('endTahun').value = 2021;
 
 // chart init
 var ctx = document.getElementById('myChart').getContext('2d');
@@ -68,8 +70,9 @@ var myChart = new Chart(ctx, {
         while (data[i].tgl < time.dari) i++;
         let interval = setInterval(function(){
             if(!Boolean(data[i])){
+                // console.log([[i],data[i]])
                 trendline(lastModel,itemData.x+1)
-                clearInterval(interval);
+                clearInterval(interval);i++;
             } else if(data[i].tgl < time.sampai){
                 itemData = {
                     x:x++,
@@ -87,7 +90,7 @@ var myChart = new Chart(ctx, {
                 myChart.data.datasets[0].data = chartData;
                 myChart.data.labels = chartLabel;
                 if(i>(durasi*60/sData)) myChart.update();
-                
+
                 lastModel = model(itemData.x+1,sX,sY,sX2);
                 if(lastModel.fb>0){tr = "Y="+lastModel.fa+'+'+lastModel.fb+"X";} 
                 else {tr = 'Y='+lastModel.fa+lastModel.fb+'X';}
@@ -97,17 +100,20 @@ var myChart = new Chart(ctx, {
                     tr = tr.replace('{tgl}',data[i].date).replace('{ihsg}',data[i].close)
                     table.insertAdjacentHTML( 'beforeend', tr )
                 } else {
-                    document.getElementsByClassName('c-'+data[i].tgl)[0].innerHTML = x
+                    tr = document.getElementsByClassName('c-'+data[i].tgl)
+                    if(Boolean(data[i]) && Boolean(tr[0])) tr[0].innerHTML = x
                 }
                 i++;
             } else {
+                // console.log([i,data[i]])
                 trendline(lastModel,itemData.x+1)
                 clearInterval(interval);
+                i++
             }
         },durasi/sData);
     }
     draw({dari:data[0].tgl,sampai:data[sData-1].tgl})
-    // draw({dari:946659600,sampai:1072890000})
+    // draw({dari:1523232000,sampai:1633599811})
 
     function trendline(model,n) {
         // console.log({model,n,itemData})

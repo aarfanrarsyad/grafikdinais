@@ -1,5 +1,8 @@
 * {
-    box-sizing: border-box;
+box-sizing: border-box;
+transition: 0.5s;
+transition-timing-function: ease-in-out;
+
 }
 
 body {
@@ -7,6 +10,7 @@ body {
     margin: 0;
     height: 95vh;
     overflow: hidden;
+    background-color: #f1f1f1;
 }
 
 /* Style the header */
@@ -58,13 +62,12 @@ div#range{
 button#run {
     background: #414746;
     padding: 0.5em;
-    padding-right : 0.1em;
     color: #fff;
     cursor: pointer;
-    word-wrap: break-word;
-    white-space: break-spaces;
+    word-break: break-all;
     grid-area: run;
     margin-bottom: 4px;
+    width: 3em;
 }
 select {
     -webkit-appearance : none;
@@ -161,9 +164,13 @@ article {
     left: 250px;
     padding: 20px 50px;
     z-index: -5;
-    background-color: #f1f1f1;
     width: 82%;
     height: 80vh; /* only for demonstration, should be removed */
+}
+
+.chart{
+    height: 60vh;
+    width: 76vw;
 }
 
 /* Clear floats after the columns */
@@ -192,9 +199,46 @@ footer p {
 
 /* Responsive layout-makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media(max-width: 600px) {
-    nav,
-    article {
+    nav,article {
+        position: static;
+        display: block;
         width: 100%;
         height: auto;
+    }
+    article{
+        overflow: auto;
+        padding : 20px 5px 5px 5px;
+    }
+    button#run {
+        word-break:keep-all;
+        width: auto;
+    }
+
+    #table{
+        display: none;
+    }
+    #model{
+        font-size : smaller;
+        margin-top: -15px;
+        position: fixed;
+        left: 25vw;
+    }
+    .chart{
+        height: 67vh;
+        width: 250vw;
+        overflow-x: auto;
+        margin-top: 15px;
+    }
+    ::-webkit-scrollbar{
+        width: 3px;
+    }
+    canvas{
+        height: 90vh;
+    }
+    h2{
+        font-size: 1em;
+    }
+    footer p{
+        font-size: xx-small;
     }
 }
