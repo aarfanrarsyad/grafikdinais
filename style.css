@@ -1,0 +1,200 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    height: 95vh;
+    overflow: hidden;
+}
+
+/* Style the header */
+header {
+    background-color: #666;
+    padding: 10px;
+    text-align: center;
+    font-size: 25px;
+    color: white;
+}
+h2{
+    margin: 5px;
+}
+
+::-webkit-scrollbar {
+    width : 8px;
+}
+::-webkit-scrollbar-track {
+    border : 3px solid #abc;
+    box-shadow : inset 0 0 2.5px rgba(0, 0, 0, .5);
+}::-webkit-scrollbar-thumb {
+    background : rgb(60, 69, 80);
+    border-radius : 5px;
+}::-webkit-scrollbar-thumb:hover {
+    background : #123;
+}
+
+
+/* Create two columns/boxes that floats next to each other */
+nav {
+    float: left;
+    width: 250px;
+    height: 90vh; /* only for demonstration, should be removed */
+    background: #ccc;
+    padding: 10px;
+    overflow-y: auto;
+}
+div#range{
+    position: sticky;
+    font-size : small;
+    top: -10px; /* Don't forget this, required for the stickiness */
+    z-index: 22;
+    padding: 4px;
+    background-color: #ccc;
+    display: grid;
+    grid-template-areas:'dari sb sb st run' 'sampai eb eb et run';
+    grid-gap: 4px;
+}
+button#run {
+    background: #414746;
+    padding: 0.5em;
+    padding-right : 0.1em;
+    color: #fff;
+    cursor: pointer;
+    word-wrap: break-word;
+    white-space: break-spaces;
+    grid-area: run;
+    margin-bottom: 4px;
+}
+select {
+    -webkit-appearance : none;
+    -moz-appearance : none;
+    -ms-appearance : none;
+    appearance : none;
+    outline : 0;
+    box-shadow : none;
+    border : 0 !important;
+    background : #5c6664;
+    background-image : none;
+    flex : 1;
+    padding : 0.5em;
+    color : #fff;
+    cursor : pointer;
+    font-size : 1em;
+    margin-bottom : 3px;
+}
+select::-ms-expand {
+    display : none;
+}.select {
+    position : relative;
+    display : flex;
+    width : 20em;
+    height : 3em;
+    line-height : 3;
+    background : #5c6664;
+    overflow : hidden;
+    border-radius : .25em;
+}.select::after {
+    content : '\25BC';
+    position : absolute;
+    top : 0;
+    right : 0;
+    padding : 0 1em;
+    background : #2b2e2e;
+    cursor : pointer;
+    pointer-events : none;
+    transition : .25s all ease;
+} .select:hover::after {
+    color : #23b499;
+}
+
+nav table{
+    position: relative;
+}
+
+table {
+    border-collapse : collapse;
+    width : 100%;
+}
+
+table td,table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+th {
+    position : sticky;
+    top : 60px; /* Don't forget this, required for the stickiness */
+    box-shadow : 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+}
+table tr:nth-child(even) {
+    background-color : #f2f2f2;
+}
+
+table tr:hover {
+    background-color : #ddd;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #666;
+    color: white;
+
+}
+
+#model{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 5px;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 2px solid white;
+}
+#model span.eq{
+    padding : 5px;
+    transition : 0.5s;
+    transition-timing-function : ease-in-out;
+}
+
+article {
+    position: absolute;
+    left: 250px;
+    padding: 20px 50px;
+    z-index: -5;
+    background-color: #f1f1f1;
+    width: 82%;
+    height: 80vh; /* only for demonstration, should be removed */
+}
+
+/* Clear floats after the columns */
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Style the footer */
+footer {
+    background-color: #777;
+    padding: 5px;
+    height: 30px;
+    text-align: center;
+    color: white;
+    position : fixed;
+    left : 0;
+    bottom : 0;
+    width : 100%;
+}
+footer p {
+    margin: 3px;
+    font-size: small;
+}
+
+/* Responsive layout-makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+@media(max-width: 600px) {
+    nav,
+    article {
+        width: 100%;
+        height: auto;
+    }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IHSG Model</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="data.js"></script>
+    <script src="Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=default"></script>
+  </head>
+  <body>
+    <header>
+      <h2>Grafik Model Linier Dinamis IHSG <small>(Mingguan)</small></h2>
+    </header>
+
+    <section>
+      <nav>
+        <div id="range">
+          <span style="margin: auto 0; grid-area: dari">Dari: </span>
+          <select id="startbulan" class="bulan" style="grid-area: sb"></select>
+          <select id="startTahun" style="grid-area: st"></select>
+          <span style="margin: auto 0; grid-area: sampai">Sampai: </span>
+          <select id="endbulan" class="bulan" style="grid-area: eb"></select>
+          <select id="endTahun" style="grid-area: et"></select>
+          <button id="run">R U N </button>
+        </div>
+        <table>
+          <tbody id="table">
+            <tr>
+              <th>\(X\)</th>
+              <th>Tanggal</th>
+              <th>IHSG</th>
+            </tr>
+          </tbody>
+        </table>
+      </nav>
+
+      <article>
+        <div id="model">Model <span class="eq">\(Y=a+bX\)</span></div>
+        <canvas id="myChart" style="height: 98%"></canvas>
+      </article>
+    </section>
+
+    <footer>
+      <p>
+        Kelompok Expor : Ahmad Arfan Arsyad (221810116), Muhammad Nirwansyah Adi
+        Eka Putra (221810468), Nurul Syifa Amalia (221810522)
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
