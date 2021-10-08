@@ -18,13 +18,15 @@
     <section>
       <nav>
         <div id="range">
-          <span style="margin: auto 0; grid-area: dari">Dari: </span>
           <select id="startbulan" class="bulan" style="grid-area: sb"></select>
           <select id="startTahun" style="grid-area: st"></select>
-          <span style="margin: auto 0; grid-area: sampai">Sampai: </span>
           <select id="endbulan" class="bulan" style="grid-area: eb"></select>
           <select id="endTahun" style="grid-area: et"></select>
+          <select id="mbulan" class="bulan" style="grid-area: mb"></select>
+          <select id="mTahun" style="grid-area: mt"></select>
           <button id="run">R U N</button>
+          <button id="predict" style="grid-area: predict">Predict</button>
+          <hr />
         </div>
         <table>
           <tbody id="table">
@@ -38,7 +40,7 @@
       </nav>
 
       <article>
-        <div id="model">Model <span class="eq">\(Y=a+bX\)</span></div>
+        <div id="model">Model \(Y=a+bX\)</div>
         <div class="chart">
           <canvas id="myChart" style="max-height: 76vh; width: 76%"></canvas>
         </div>
